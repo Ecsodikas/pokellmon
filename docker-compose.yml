@@ -1,0 +1,43 @@
+services:
+    llm:
+        tty: true
+        build: ./llm
+        environment:
+            - OLLAMA_HOST="0.0.0.0"
+        ports:
+            - 11434:11434
+        volumes:
+            - llm:/usr/share/ollama/.ollama/models
+
+    db:
+        image: postgres
+        restart: always
+        environment:
+            POSTGRES_DB: pokellmon
+            POSTGRES_USER: pokellmon
+            POSTGRES_PASSWORD: qwe123
+        ports:
+            - 12345:5432
+        volumes:
+            - postgresql:/var/lib/postgresql
+
+    emulation:
+        build: ./emulation
+        ports:
+            - 9999:9999
+
+    pokellmon:
+        depends_on:
+            db:
+                condition: service_started
+            emulation:
+                condition: service_started
+            llm:
+                condition: service_started
+        ports:
+            - 12345:8081
+        build: ./pokellmon
+
+volumes:
+    postgresql:
+    llm:
