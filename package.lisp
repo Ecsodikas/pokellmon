@@ -1,4 +1,4 @@
 ;;;; package.lisp
 
 (defpackage #:pokellmon
-  (:use #:cl))
+  (:use #:cl #:alexandria #:serapeum))

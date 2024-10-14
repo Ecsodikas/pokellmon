@@ -1,9 +1,6 @@
 # pokellmon
-### _Your Name <your.name@example.com>_
-
-This is a project to do ... something.
+This is a little project showing how LLMs are not almighty.
 
 ## License
-
-Specify license here
+MIT
 
