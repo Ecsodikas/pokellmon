@@ -4,4 +4,4 @@ ollama serve &
 
 sleep 5
 
-ollama run llava
+ollama run moondream

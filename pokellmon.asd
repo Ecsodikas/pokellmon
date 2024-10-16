@@ -11,12 +11,13 @@
                :serapeum
                :cl-base64
                :easy-routes
-               :dexador
+               :drakma
                :cl-dotenv
                :spinneret
                :postmodern)
   :components ((:file "package")
-               (:file "emulator")
                (:file "database")
+               (:file "emulator")
+               (:file "llm")
                (:file "web")
                (:file "pokellmon")))
