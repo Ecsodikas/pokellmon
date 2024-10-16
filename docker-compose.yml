@@ -8,11 +8,6 @@ services:
             - 11434:11434
         volumes:
             - llm:/usr/share/ollama/.ollama/models
-    adminer:
-      image: adminer
-      restart: always
-      ports:
-        - 8088:8080
     db:
         image: postgres
         restart: always
@@ -21,14 +16,14 @@ services:
             POSTGRES_USER: pokellmon
             POSTGRES_PASSWORD: qwe123
         ports:
-            - 12345:5432
+            - 5432
         volumes:
             - postgresql:/var/lib/postgresql
 
     emulation:
         build: ./emulation
         ports:
-            - 9999:9999
+            - 9999
 
     pokellmon:
         depends_on:
@@ -39,7 +34,7 @@ services:
             llm:
                 condition: service_started
         ports:
-            - 12345:8081
+            - 12345:6789
         build: ./pokellmon
 
 volumes:

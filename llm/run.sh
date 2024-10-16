@@ -4,4 +4,4 @@ ollama serve &
 
 sleep 5
 
-ollama run moondream
+ollama run llava-phi3

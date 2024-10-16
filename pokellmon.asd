@@ -14,7 +14,8 @@
                :drakma
                :cl-dotenv
                :spinneret
-               :postmodern)
+               :postmodern
+               :yason)
   :components ((:file "package")
                (:file "database")
                (:file "emulator")

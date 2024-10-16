@@ -1,3 +1,4 @@
+.env
 *.FASL
 *.fasl
 *.lisp-temp
