@@ -38,6 +38,7 @@ Don't write any other text or symbols including the ```json in your response oth
 
 (defun main ()
   (set-env)
+  (connect-toplevel *database-name* *database-user* *database-password* *database-uri* :port *database-port*)
   (migrate)
                                         ; Let emulator step forward 5 times per second.
   (sb-thread:make-thread
