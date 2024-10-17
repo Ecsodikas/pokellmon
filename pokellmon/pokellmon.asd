@@ -1,6 +1,9 @@
 ;;;; pokellmon.asd
 
 (asdf:defsystem #:pokellmon
+  :build-operation program-op
+  :build-pathname "pokellmon"
+  :entry-point "pokellmon:main"
   :description "Describe pokellmon here"
   :author "Your Name <your.name@example.com>"
   :license  "Specify license here"

@@ -12,7 +12,6 @@
                                                                  :method :post
                                                                  :content prompt))
                                  "")))
-    (format t "~A" result)
     (list
      (gethash "action" (yason:parse (gethash "response" (yason:parse result))))
      (gethash "reason" (yason:parse (gethash "response" (yason:parse result)))))))
