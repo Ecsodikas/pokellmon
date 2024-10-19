@@ -1,6 +1,5 @@
 services:
     llm:
-        tty: true
         build: ./llm
         environment:
             - OLLAMA_HOST="0.0.0.0"
@@ -16,14 +15,14 @@ services:
             POSTGRES_USER: pokellmon
             POSTGRES_PASSWORD: qwe123
         ports:
-            - 5432
+            - 5432:5432
         volumes:
             - ./database:/var/lib/postgresql
 
     emulation:
         build: ./emulation
         ports:
-            - 9999
+            - 9999:9999
 
     adminer:
         image: adminer

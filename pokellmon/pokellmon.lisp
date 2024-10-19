@@ -38,12 +38,13 @@ Don't write any other text or symbols including the ```json in your response oth
 
 (defun main ()
   (set-env)
-  (postmodern:connect-toplevel *database-name* *database-user* *database-password* *database-uri* :port *database-port*)
+  (unless (postmodern:current-database)
+    (postmodern:connect-toplevel *database-name* *database-user* *database-password* *database-uri* :port *database-port*))
   (migrate)
                                         ; Let emulator step forward 5 times per second.
   (sb-thread:make-thread
    (lambda () (step-f)))
-                                        ; Start web server on port 6789
+                                        ;Start web server on port 6789
   (start-server 6789)
                                         ; Run logic loop
   (loop
@@ -56,4 +57,7 @@ Don't write any other text or symbols including the ```json in your response oth
                     reason
                     (write-to-string (get-universal-time))
                     screen)
-      (send-action action))))
+      (ignore-errors
+       (send-action action))
+      (sleep 0.5))))
+
