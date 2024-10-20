@@ -33,20 +33,22 @@ Don't write any other text or symbols including the ```json in your response oth
 
 (defun step-f ()
   (step-frame)
-  (sleep 0.1)
+  (sleep 0.2)
   (step-f))
 
 (defun main ()
+  (write-line "Init environment.")
   (set-env)
-  (unless (postmodern:current-database)
-    (postmodern:connect-toplevel *database-name* *database-user* *database-password* *database-uri* :port *database-port*))
+  (write-line "Migrate database if necessary.")
   (migrate)
                                         ; Let emulator step forward 5 times per second.
   (sb-thread:make-thread
    (lambda () (step-f)))
                                         ;Start web server on port 6789
+  (write-line "Starting Hunchentoot server on port 6789.")
   (start-server 6789)
                                         ; Run logic loop
+  (write-line "Starting main loop.")
   (loop
     (let* ((screen (cl-base64:string-to-base64-string (get-screen)))
            (response (send-prompt *prompt* screen))
@@ -60,4 +62,3 @@ Don't write any other text or symbols including the ```json in your response oth
       (ignore-errors
        (send-action action))
       (sleep 0.5))))
-
