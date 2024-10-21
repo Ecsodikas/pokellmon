@@ -8,7 +8,7 @@
          (reason (fourth current-entry))
          (image (fifth current-entry)))
     (spinneret:with-html-string
-      (:doctype)
+        (:doctype)
       (:html
        (:head
         (:title "PokeLLMon")
@@ -17,7 +17,7 @@
         (:body
          (:section :class "nes-container is-centered with-title"
                    (:h3 :class "title" "Current Frame")
-                   (:img :src (concatenate 'string "data:image/png;base64, " image)))
+                   (:img :style "image-rendering: pixelated; width: 100%;" :src (concatenate 'string "data:image/png;base64, " image)))
          (:section :class "nes-container is-centered with-title"
                    (:h3 :class "title" "Button Press")
                    (:p action))
