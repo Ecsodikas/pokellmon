@@ -42,7 +42,8 @@ timelapses to this page.")
                     (:li "The LLM in use is the llava model with 7 billion parameters.")
                     (:li (:a :href "https://github.com/skylersaleh/SkyEmu" "SkyEmu") " is the emulator in use.")
                     (:li "Yes, I own a real copy of Pokemon Emerald.")
-                    (:li "The project is written in " (:a :href "https://en.wikipedia.org/wiki/Common_Lisp" "Common Lisp.") "#lovetheparentheses")))))))))
+                    (:li "The project is written in " (:a :href "https://en.wikipedia.org/wiki/Common_Lisp" "Common Lisp.") "#lovetheparentheses")
+                    (:li "There is a possibility that I lost all data by being a little derp. We have to go agane! (Smol WoW Hardcore reference.)")))))))))
 
 (defun stop-server ()
   (when *acceptor*
