@@ -13,10 +13,9 @@
                                                                                 :content prompt
                                                                                 :connection-timeout 180))
                                                 ""))))
-    (handler-case
+    (if result
         (list
          (gethash "action" (yason:parse (gethash "response" (yason:parse result))))
          (gethash "reason" (yason:parse (gethash "response" (yason:parse result)))))
-      (error ()
-        (sleep 5)
-        (send-prompt prompt image)))))
+        (progn
+          (format t "Malformed result.")))))
