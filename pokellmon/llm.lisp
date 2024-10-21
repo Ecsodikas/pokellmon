@@ -18,4 +18,5 @@
          (gethash "action" (yason:parse (gethash "response" (yason:parse result))))
          (gethash "reason" (yason:parse (gethash "response" (yason:parse result)))))
         (progn
-          (format t "Malformed result.")))))
+          (list (random-elt '("Right" "Left" "Top" "Bottom" "Start" "Select" "A" "B"))
+                "Because I couldn't understand what I was looking at I chose a random action.")))))
