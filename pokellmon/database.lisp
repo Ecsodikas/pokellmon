@@ -1,8 +1,8 @@
 (in-package #:pokellmon)
 
 (defun migrate ()
-  (unless (postmodern:table-exists-p 'logs)
-    (postmodern:with-connection (list *database-name* *database-user* *database-password* *database-uri* :port *database-port*)
+  (postmodern:with-connection (list *database-name* *database-user* *database-password* *database-uri* :port *database-port*)
+    (unless (postmodern:table-exists-p 'logs)
       (postmodern:query (:create-table 'logs
                                        ((id :type integer :primary-key t :identity-always t)
                                         (name :type string :check (:<> 'name ""))
