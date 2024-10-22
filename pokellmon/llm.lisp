@@ -13,10 +13,10 @@
                                                                                 :content prompt
                                                                                 :connection-timeout 180))
                                                 ""))))
-    (if result
+    (handler-case
         (list
          (gethash "action" (yason:parse (gethash "response" (yason:parse result))))
          (gethash "reason" (yason:parse (gethash "response" (yason:parse result)))))
-        (progn
-          (list (random-elt '("Right" "Left" "Top" "Bottom" "Start" "Select" "A" "B"))
-                "Because I couldn't understand what I was looking at I chose a random action.")))))
+      (error ()
+        (list (random-elt '("Right" "Left" "Top" "Bottom" "Start" "Select" "A" "B"))
+              "Because I couldn't understand what I was looking at I chose a random action.")))))
