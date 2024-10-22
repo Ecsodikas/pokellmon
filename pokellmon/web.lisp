@@ -16,7 +16,8 @@
         (:style (:raw "* { font-family: \"PressStartToPlay\"; }"))
         (:body
          (:div :class "wrapper"
-               (:div :class "inner-wrapper"
+               (:div :class "left")
+               (:div :class "middle"
                      (:section :class "nes-container is-centered with-title"
                                (:h3 :class "title" "Current Frame")
                                (:img :style "image-rendering: pixelated; width: 100%;" :src (concatenate 'string "data:image/png;base64, " image)))
@@ -45,7 +46,8 @@ timelapses to this page.")
                                 (:li (:a :href "https://github.com/skylersaleh/SkyEmu" "SkyEmu") " is the emulator in use.")
                                 (:li "Yes, I own a real copy of Pokemon Emerald.")
                                 (:li "The project is written in " (:a :href "https://en.wikipedia.org/wiki/Common_Lisp" "Common Lisp.") "#lovetheparentheses")
-                                (:li "There is a possibility that I lost all data by being a little derp. We have to go agane! (Smol WoW Hardcore reference.)")))))))))))
+                                (:li "There is a possibility that I lost all data by being a little derp. We have to go agane! (Smol WoW Hardcore reference.)"))))
+               (:div :class "right"))))))))
 
 (defun stop-server ()
   (when *acceptor*
