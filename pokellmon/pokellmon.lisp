@@ -10,9 +10,15 @@
 (defparameter *database-user* nil)
 (defparameter *llm-base-uri* nil)
 (defparameter *llm-name* nil)
-(defparameter *prompt* "You are the main character in Pokemon Emerald player and you want to beat the game as fast as possible.
-You are playing right now and here you have a screenshot of your current game.
+(defparameter *prompt* "You are controlling the main character in Pokemon Emerald and you want to beat the game as fast as possible.
+You are playing right now and you can the  screenshot of your current game state.
 What would be the best possible button press out of A, B, Left, Up, Down, Right, Start, Select be?
+Up, Left, Down, Right move your character in the given direction.
+A lets you interact with stuff you are facing.
+B lets you abort actions.
+Start opens and closes the menu.
+Select does mostly nothing.
+If you don't know what to do next, just explore and talk to NPCs and evaluate again.
 Answer only in JSON format in the form of the following example:
 {\\\"action\\\": \\\"A\\\", \\\"reason\\\": \\\"This button was pressed because I need to know what Pokemon I have.\\\"}
 You have to make the best decision to progress the game state.
